@@ -19,13 +19,13 @@ import Foundation
  Make use of your test plan and algorithm to ensure your code is complete.
  
  */
-var inputToProcess : String = ""
+var angles = [Int]()
 
 // Loop until valid input is received
-while inputToProcess == "" {
+while angles.count < 3 {
     
     // Show the prompt
-    print("Ask the question here? ", terminator: "")
+    print("Angle \(angles.count)", terminator: "")
     
     // Get the user's input
     var input : String?
@@ -34,12 +34,12 @@ while inputToProcess == "" {
     // Use optional binding to see if the string can be unwrapped (to see if it is not nil)
     if let notNilInput = input {
         
-        // You probably need to add additional checks to be sure the
-        // input received is valid
-        // Add checks as needed...
+        if let angleAsInt = Int(notNilInput) {
+            
+        }
         
         // Save the input given, as we are certain it's what we are looking for now
-        inputToProcess = notNilInput
+        //inputToProcess = notNilInput
         
     }
     
@@ -70,5 +70,5 @@ print("replace with process logic")
  */
 
 // Add 'output' code below... replace what is here as needed.
-print("The input given was: \(inputToProcess)")
+//print("The input given was: \(inputToProcess)")
 
