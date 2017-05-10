@@ -22,10 +22,20 @@ import Foundation
 var angles = [Int]()
 
 // Loop until valid input is received
+
+func sum(numbers : [Int]) -> Int {
+    var total = 0
+    for n in numbers {
+        total += n
+    }
+    return total
+}
+
+
 while angles.count < 3 {
     
     // Show the prompt
-    print("Angle \(angles.count)", terminator: "")
+    print("Angle \(angles.count + 1)? ", terminator: "")
     
     // Get the user's input
     var input : String?
@@ -35,7 +45,12 @@ while angles.count < 3 {
     if let notNilInput = input {
         
         if let angleAsInt = Int(notNilInput) {
-            
+            if (angleAsInt >= 1 && angleAsInt <= 178) {
+                angles.append(angleAsInt)
+                if angles.count == 3 && sum(numbers: angles) != 180 {
+                    angles.removeAll()
+                }
+            }
         }
         
         // Save the input given, as we are certain it's what we are looking for now
@@ -56,7 +71,18 @@ while angles.count < 3 {
  */
 
 // Add 'process' code below....
-print("replace with process logic")
+
+// check for an equal triangle
+
+var output : String?
+
+if (angles[0] == 60 && angles[1] == 60 && angles[2] == 60) {
+    output = "Equilateral"
+} else if (angles[0] == angles[1] || angles[1] == angles[2] || angles[2] == angles[0]) {
+    output = "Isoceles"
+} else {
+    output = "Scalene"
+}
 
 
 /*
@@ -70,5 +96,6 @@ print("replace with process logic")
  */
 
 // Add 'output' code below... replace what is here as needed.
-//print("The input given was: \(inputToProcess)")
+
+print("The Triangle is: \(output!)")
 
